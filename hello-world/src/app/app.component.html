@@ -1,0 +1,34 @@
+<h1>{{ title }}</h1>
+
+
+<greeting name="Aidan">
+
+</greeting>
+
+
+<button (click)="onClick()">Press Me</button>
+
+<ul>
+    <li *ngFor="let message of messages">
+        {{ message.title }}<span *ngIf="message.important">*</span>
+    </li>
+</ul>
+
+<message   
+    *ngFor = "let message of messages"
+    [title]="message.title"
+    [text]="message.text"
+    [important]="message.important"
+>
+</message>
+
+<hr>
+
+<message 
+    title="Message 1" 
+    text="This is message 1">
+</message>
+<message 
+    title="Message 2"
+    text="This is message 2">
+</message>

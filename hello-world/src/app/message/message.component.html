@@ -1,0 +1,9 @@
+<div 
+    [ngClass]="{'important': important}"
+    (click)="onClick()"
+>
+    <h1>{{ title }}</h1>
+    <p>{{ text }}</p>
+    <p *ngIf="important">IMPORTANT</p>
+</div>
+
