@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 25,
+      "name": "Yvonne",
+      "email": "yvonne@gmail.com",
+      "active": true
+    },
+    {
+      "id": 24,
+      "name": "Xavier",
+      "email": "xavier@gmail.com",
+      "active": false
+    },
+    {
+      "id": 23,
+      "name": "Wendy",
+      "email": "wendy@gmail.com",
+      "active": true
+    },
+    {
+      "name": "Changed",
+      "email": "changed.user@gmail.com",
+      "active": true,
+      "id": 26
+    }
+  ]
+}

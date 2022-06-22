@@ -8,6 +8,36 @@ import { UserService } from './user.service';
   template: `
     <h1>{{ title | titlecase }}</h1>
 
+    <button (click)="onMakeAjaxCall()">Make Ajax Call</button>
+
+
+
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr 
+          *ngFor="let user of users" 
+          [ngClass]="{'active':user.active, 'inactive': !user.active}"
+        >
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.active ? "Active" : "Inactive" }}</td>
+          <td><button (click)="onDeleteUser(user.id)">Delete</button></td>
+        </tr>
+    </table>
+
+    <hr>
+
     {{ selectedUserId }}
     <select [(ngModel)]="selectedUserId">
       <option [value]="user.id"
@@ -32,8 +62,27 @@ export class AppComponent {
   title = 'user manager app';
   users:User[] = [];
 
+  onMakeAjaxCall(){
+    //alert("make ajax call");
+
+    this.userService.getUsersFromRestService()
+      .subscribe((data) => {
+        //alert(JSON.stringify(data));
+        this.users = data as User[];
+      })
+  }
+
+
+
+  onDeleteUser(userId:number) {
+    if (confirm("delete:" + userId)) {
+      this.userService.deleteUser(userId);
+    }
+  }
   onDeleteClick() {
-    alert("delete:" + this.selectedUserId);
+    if (confirm("delete:" + this.selectedUserId)) {
+      this.userService.deleteUser(this.selectedUserId);
+    }
   }
 
   // userService = new UserService();

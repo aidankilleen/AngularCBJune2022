@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from './user.model';
 
@@ -14,13 +15,19 @@ export class UserService {
     new User(5, "Eve", "eve@gmail.com", false),
   ];
 
-  constructor() { }
+  url:string = "http://localhost:3000/users";
+
+  constructor(public httpClient: HttpClient) { }
+
+  getUsersFromRestService() {
+    return this.httpClient.get(this.url);
+  }
+
 
   getUsers(): User[] {
     return this.users;
   }
   deleteUser(id: number): void {
-
     let index = this.users.findIndex(user => user.id == id);
     this.users.splice(index, 1);
   }
