@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SummaryPipe } from './summary.pipe';
+import { FormatTextDirective } from './format-text.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SummaryPipe
+    SummaryPipe,
+    FormatTextDirective
   ],
   imports: [
     BrowserModule,

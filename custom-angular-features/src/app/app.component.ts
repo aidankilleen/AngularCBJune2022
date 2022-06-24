@@ -9,6 +9,11 @@ import { Component } from '@angular/core';
 
     <input type="range" min="10" max="200" [(ngModel)]="length">
     <p>{{ message | summary:length }}</p>
+
+
+    <input appFormatText="lowercase">
+    <input appFormatText="uppercase">
+
   `,
   styleUrls: ['./app.component.css']
 })
